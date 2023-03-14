@@ -1,5 +1,5 @@
-processor 16f877
-include <p16f877.inc>
+processor 16f887
+include <p16f887.inc>
 valor1 equ h'21'
 valor2 equ h'22'
 valor3 equ h'23'
@@ -8,7 +8,7 @@ cte2 equ 50h
 cte3 equ 60h
  	ORG 0
 GOTO INICIO
- 	ORG 5
+	ORG 5
 INICIO:
 	BSF STATUS,RP0
  	BCF STATUS,RP1
