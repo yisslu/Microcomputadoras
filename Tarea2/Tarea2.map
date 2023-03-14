@@ -1,0 +1,44 @@
+MPLINK 4.49, Linker
+Linker Map File - Created Tue Mar 14 12:45:52 2023
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                   .org_0       code   0x000000    program   0x000000
+                   .org_1       code   0x000000    program   0x000002
+                   .org_2       code   0x000005    program   0x000030
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x000000      
+                            0x000005    0x00001c      
+            25 out of 8454 program addresses used, program memory utilization is 0%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                   INICIO   0x000005    program     static D:\Yisus\Documentos\Semestre_2023-2\Microcomputadoras\Tarea2\Tarea2.asm
+                      dos   0x000014    program     static D:\Yisus\Documentos\Semestre_2023-2\Microcomputadoras\Tarea2\Tarea2.asm
+                    loop2   0x00000b    program     static D:\Yisus\Documentos\Semestre_2023-2\Microcomputadoras\Tarea2\Tarea2.asm
+                  retardo   0x000010    program     static D:\Yisus\Documentos\Semestre_2023-2\Microcomputadoras\Tarea2\Tarea2.asm
+                     tres   0x000012    program     static D:\Yisus\Documentos\Semestre_2023-2\Microcomputadoras\Tarea2\Tarea2.asm
+                      uno   0x000016    program     static D:\Yisus\Documentos\Semestre_2023-2\Microcomputadoras\Tarea2\Tarea2.asm
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                   INICIO   0x000005    program     static D:\Yisus\Documentos\Semestre_2023-2\Microcomputadoras\Tarea2\Tarea2.asm
+                    loop2   0x00000b    program     static D:\Yisus\Documentos\Semestre_2023-2\Microcomputadoras\Tarea2\Tarea2.asm
+                  retardo   0x000010    program     static D:\Yisus\Documentos\Semestre_2023-2\Microcomputadoras\Tarea2\Tarea2.asm
+                     tres   0x000012    program     static D:\Yisus\Documentos\Semestre_2023-2\Microcomputadoras\Tarea2\Tarea2.asm
+                      dos   0x000014    program     static D:\Yisus\Documentos\Semestre_2023-2\Microcomputadoras\Tarea2\Tarea2.asm
+                      uno   0x000016    program     static D:\Yisus\Documentos\Semestre_2023-2\Microcomputadoras\Tarea2\Tarea2.asm
+
+
