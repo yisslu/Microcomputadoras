@@ -1,12 +1,12 @@
 MPLINK 4.49, Linker
-Linker Map File - Created Wed Mar 15 17:50:07 2023
+Linker Map File - Created Thu Mar 16 15:22:47 2023
 
                                  Section Info
                   Section       Type    Address   Location Size(Bytes)
                 ---------  ---------  ---------  ---------  ---------
                    .org_0       code   0x000000    program   0x000000
                    .org_1       code   0x000000    program   0x000004
-                   .org_2       code   0x000005    program   0x0000aa
+                   .org_2       code   0x000005    program   0x0000b2
 
 
 
@@ -14,26 +14,28 @@ Linker Map File - Created Wed Mar 15 17:50:07 2023
                                Start         End      
                            ---------   ---------      
                             0x000000    0x000001      
-                            0x000005    0x000059      
-            87 out of 8455 program addresses used, program memory utilization is 1%
+                            0x000005    0x00005d      
+            91 out of 8455 program addresses used, program memory utilization is 1%
 
 
 
                               Symbols - Sorted by Name
                      Name    Address   Location    Storage File                     
                 ---------  ---------  ---------  --------- ---------                
-                      DOS   0x000047    program     static C:\Users\aaldi\OneDrive - UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO\school\8th-semester\Micro-Tareas\Tarea2\Tarea2.asm
+              CORRIMIENTO   0x000045    program     static C:\Users\aaldi\OneDrive - UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO\school\8th-semester\Micro-Tareas\Tarea2\Tarea2.asm
+                      DOS   0x00004b    program     static C:\Users\aaldi\OneDrive - UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO\school\8th-semester\Micro-Tareas\Tarea2\Tarea2.asm
                    INICIO   0x000005    program     static C:\Users\aaldi\OneDrive - UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO\school\8th-semester\Micro-Tareas\Tarea2\Tarea2.asm
                      LOOP   0x00001a    program     static C:\Users\aaldi\OneDrive - UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO\school\8th-semester\Micro-Tareas\Tarea2\Tarea2.asm
-                  RETARDO   0x000044    program     static C:\Users\aaldi\OneDrive - UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO\school\8th-semester\Micro-Tareas\Tarea2\Tarea2.asm
-                SECUENCIA   0x000050    program     static C:\Users\aaldi\OneDrive - UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO\school\8th-semester\Micro-Tareas\Tarea2\Tarea2.asm
+                  RETARDO   0x000048    program     static C:\Users\aaldi\OneDrive - UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO\school\8th-semester\Micro-Tareas\Tarea2\Tarea2.asm
+                SECUENCIA   0x000054    program     static C:\Users\aaldi\OneDrive - UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO\school\8th-semester\Micro-Tareas\Tarea2\Tarea2.asm
                    SEC_01   0x000021    program     static C:\Users\aaldi\OneDrive - UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO\school\8th-semester\Micro-Tareas\Tarea2\Tarea2.asm
                    SEC_02   0x000029    program     static C:\Users\aaldi\OneDrive - UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO\school\8th-semester\Micro-Tareas\Tarea2\Tarea2.asm
                    SEC_03   0x000035    program     static C:\Users\aaldi\OneDrive - UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO\school\8th-semester\Micro-Tareas\Tarea2\Tarea2.asm
                    SEC_04   0x00003c    program     static C:\Users\aaldi\OneDrive - UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO\school\8th-semester\Micro-Tareas\Tarea2\Tarea2.asm
                      STOP   0x000030    program     static C:\Users\aaldi\OneDrive - UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO\school\8th-semester\Micro-Tareas\Tarea2\Tarea2.asm
-                      TRE   0x000045    program     static C:\Users\aaldi\OneDrive - UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO\school\8th-semester\Micro-Tareas\Tarea2\Tarea2.asm
-                      UNO   0x000049    program     static C:\Users\aaldi\OneDrive - UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO\school\8th-semester\Micro-Tareas\Tarea2\Tarea2.asm
+                      TRE   0x000049    program     static C:\Users\aaldi\OneDrive - UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO\school\8th-semester\Micro-Tareas\Tarea2\Tarea2.asm
+                      UNO   0x00004d    program     static C:\Users\aaldi\OneDrive - UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO\school\8th-semester\Micro-Tareas\Tarea2\Tarea2.asm
+                    loop2   0x00003e    program     static C:\Users\aaldi\OneDrive - UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO\school\8th-semester\Micro-Tareas\Tarea2\Tarea2.asm
 
 
 
@@ -47,10 +49,12 @@ Linker Map File - Created Wed Mar 15 17:50:07 2023
                      STOP   0x000030    program     static C:\Users\aaldi\OneDrive - UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO\school\8th-semester\Micro-Tareas\Tarea2\Tarea2.asm
                    SEC_03   0x000035    program     static C:\Users\aaldi\OneDrive - UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO\school\8th-semester\Micro-Tareas\Tarea2\Tarea2.asm
                    SEC_04   0x00003c    program     static C:\Users\aaldi\OneDrive - UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO\school\8th-semester\Micro-Tareas\Tarea2\Tarea2.asm
-                  RETARDO   0x000044    program     static C:\Users\aaldi\OneDrive - UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO\school\8th-semester\Micro-Tareas\Tarea2\Tarea2.asm
-                      TRE   0x000045    program     static C:\Users\aaldi\OneDrive - UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO\school\8th-semester\Micro-Tareas\Tarea2\Tarea2.asm
-                      DOS   0x000047    program     static C:\Users\aaldi\OneDrive - UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO\school\8th-semester\Micro-Tareas\Tarea2\Tarea2.asm
-                      UNO   0x000049    program     static C:\Users\aaldi\OneDrive - UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO\school\8th-semester\Micro-Tareas\Tarea2\Tarea2.asm
-                SECUENCIA   0x000050    program     static C:\Users\aaldi\OneDrive - UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO\school\8th-semester\Micro-Tareas\Tarea2\Tarea2.asm
+                    loop2   0x00003e    program     static C:\Users\aaldi\OneDrive - UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO\school\8th-semester\Micro-Tareas\Tarea2\Tarea2.asm
+              CORRIMIENTO   0x000045    program     static C:\Users\aaldi\OneDrive - UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO\school\8th-semester\Micro-Tareas\Tarea2\Tarea2.asm
+                  RETARDO   0x000048    program     static C:\Users\aaldi\OneDrive - UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO\school\8th-semester\Micro-Tareas\Tarea2\Tarea2.asm
+                      TRE   0x000049    program     static C:\Users\aaldi\OneDrive - UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO\school\8th-semester\Micro-Tareas\Tarea2\Tarea2.asm
+                      DOS   0x00004b    program     static C:\Users\aaldi\OneDrive - UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO\school\8th-semester\Micro-Tareas\Tarea2\Tarea2.asm
+                      UNO   0x00004d    program     static C:\Users\aaldi\OneDrive - UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO\school\8th-semester\Micro-Tareas\Tarea2\Tarea2.asm
+                SECUENCIA   0x000054    program     static C:\Users\aaldi\OneDrive - UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO\school\8th-semester\Micro-Tareas\Tarea2\Tarea2.asm
 
 
