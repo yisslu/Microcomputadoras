@@ -74,32 +74,32 @@ LOOP:					;LOOP PRINCIPAL
 	GOTO SEC_01			;PC + 0 --> SECUENCIA 1		"PRENDE - APAGA"
 	GOTO SEC_02			;PC + 1 --> SECUENCIA 2		"CONTADOR ASCENDENTE"
 	GOTO SEC_03			;PC + 3 --> SECUENCIA 4		"SECUENCIA PERSONALIZADA"
-	GOTO SEC_04			;PC + 2 --> SECUENCIA 3		"CONTADOR DESCENDENTE"
+	GOTO SEC_04			;PC + 2 --> SECUENCIA 3		"Corrimiento de dos bits hacia la derecha"
 
 SEC_01:					;"PRENDE - APAGA"
-	MOVLW H'01'
-	MOVWF PORTB			;(PORTB) <-- 0XFF
-	MOVLW .50
-	CALL RETARDO
+	MOVLW H'01'			; Carga 0x01 a W
+	MOVWF PORTB			; Mueve el contenido de W a PORTB
+	MOVLW .50			
+	CALL RETARDO		;Llama a la subrutina retardo
 	CLRF PORTB			;(PORTB) <-- 0X00
 	MOVLW .50
-	CALL RETARDO
-	GOTO LOOP
+	CALL RETARDO		;Llama a a la subrutina retardo
+	GOTO LOOP			;Salta a la etiqueta LOOP
 
 SEC_02:				;"CONTADOR ASCENDENTE"	
-	CALL STOP	
+	CALL STOP	;Llama a la subrutina contador
 	INCF CONTADOR,F	;(CONTADOR) <-- (CONTADOR) + 1
 	MOVF CONTADOR,W		;W <-- (CONTADOR)
 	MOVWF PORTB			;(PORTB) <-- W
 	MOVLW .25
-	CALL RETARDO					
-	GOTO LOOP
+	CALL RETARDO		;Llama a la subrutina retardo			
+	GOTO LOOP			;Salta a la etiqueta LOOP
 STOP:
 	MOVLW H'10' 
-	SUBWF CONTADOR,0
-	BTFSC STATUS, Z ;Z = 1
-	GOTO LOOP
-	RETURN
+	SUBWF CONTADOR,0	;Le resta a W el contenido de CONTADOR y lo guarda en W
+	BTFSC STATUS, Z ;Z = 1 ;Verifica el estado de la bandera, si Z esta en 1 quiere decir que fue cero
+	GOTO LOOP				;Si fue cero se salta a LOOP
+	RETURN					;Si es diferente de cero quiere decir que no acaba el contador y regresa a donde llamaron a la subrutina
 
 SEC_03:					;"SECUENCIA PERSONALIZADA"
 	INCF INDICE,F		;(INDICE) <-- (INDICE) + 1
@@ -107,30 +107,24 @@ SEC_03:					;"SECUENCIA PERSONALIZADA"
 	CALL SECUENCIA		;LLAMA A LA SUBRUTINA DE SECUENCIAS PERSONALIZADAS CON					;EL VALOR DEL INDICE EN W         "PASO DE VALOR EN W"
 	MOVWF PORTB			;(PORTB) <-- W
 	MOVLW .10
-	CALL RETARDO		
-	GOTO LOOP
+	CALL RETARDO		;Llama a la subrutina retardo
+	GOTO LOOP			;Salta a LOOP
 
-SEC_04:					;"CONTADOR DESCENDENTE"
- 	MOVLW H'80'
- 	MOVWF CONTADOR 
-loop2 MOVF CONTADOR,W
- 	MOVWF PORTB
+SEC_04:					;"Corrimiento de dos bits hacia la derecha"
+ 	MOVLW H'80'			;W <-- 0x80
+ 	MOVWF CONTADOR 		;CONTADOR <-- W
+loop2 MOVF CONTADOR,W	;W <-- CONTADOR
+ 	MOVWF PORTB			;PORTB <-- W
 	MOVLW .50
- 	CALL RETARDO
- 	BTFSS CONTADOR,0
- 	GOTO CORRIMIENTO
- 	GOTO LOOP
+ 	CALL RETARDO		;Llama a la subrutina retardo
+ 	BTFSS CONTADOR,0	;Verifica si el bit 0 del CONTADOR  esta en 1
+ 	GOTO CORRIMIENTO	;Si está en uno no salta a CORRIMIENTO
+ 	GOTO LOOP			;Si está en cero no salta a LOOP
 
 CORRIMIENTO
 	RRF CONTADOR
 	RRF CONTADOR
  	GOTO loop2
-	;DECF CONTADOR,F		;(CONTADOR) <-- (CONTADOR) - 1
-	;MOVF CONTADOR,W		;W <-- (CONTADOR)
-	;MOVWF PORTB			;(PORTB) <-- W
-	;MOVLW .25
-	;CALL RETARDO					
-	;GOTO LOOP
 
 ;========================================================================================
 ;	SUBRUTINAS
