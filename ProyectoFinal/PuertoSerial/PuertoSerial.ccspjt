@@ -1,0 +1,77 @@
+[PROJECT]
+Target=PuertoSerial.hex
+Processor_Text=PIC16F887
+CCSVersion=5.076
+Compiler=PCM
+[Target Data]
+FileList=PuertoSerial.c
+[PuertoSerial.c]
+Type=4
+[mru-list]
+1=PuertoSerial.c
+
+[defines]
+buildcount=44
+
+[Opened Files]
+1=PuertoSerial.c
+t1=78
+Count=1
+2=i2c-lcd.c
+t2=27
+
+[ProjectLog]
+Days=5
+D1=16-05-2023
+D1_L=2
+D1_L1=[74403]Stopped Editing.
+TotalEdit=207
+TotalDebug=0
+D1_E=198
+D1_D=0
+D1_L2=[74870]Project Closed.
+D2=30-05-2023
+D2_L=5
+D2_L1=[59367]Project Opened.
+D2_L2=[59382]Started Editing.
+D2_L3=[60177]Stopped Editing.
+D2_L4=[60724]Started Editing.
+D2_L5=[61036]Stopped Editing.
+D3=31-05-2023
+D3_E=9
+D3_D=0
+D3_L=1
+D3_L1=[34057]Project Closed.
+D4=09-06-2023
+D4_L=22
+D4_L1=[40791]Project Opened.
+D4_L2=[41197]Project Closed.
+D4_L3=[41206]Project Opened.
+D4_L4=[41305]Started Editing.
+D4_L5=[41793]Project Closed.
+D4_L6=[41797]Project Opened.
+D4_L7=[41801]Started Editing.
+D4_L8=[43588]Stopped Editing.
+D4_L9=[44033]Started Editing.
+D4_L10=[45780]Stopped Editing.
+D4_L11=[46114]Started Editing.
+D4_L12=[46640]Stopped Editing.
+D4_L13=[46832]Started Editing.
+D4_L14=[47485]Stopped Editing.
+D4_L15=[47795]Started Editing.
+D4_L16=[49148]Stopped Editing.
+D4_L17=[49210]Started Editing.
+D4_L18=[49632]Stopped Editing.
+D4_L19=[51235]Started Editing.
+D4_L20=[51747]Stopped Editing.
+D4_L21=[51867]Started Editing.
+D4_L22=[52544]Stopped Editing.
+D5=10-06-2023
+D5_L=1
+D5_L1=[79711]Started Editing.
+
+[fileformats]
+forcecoff=0
+[Units]
+Count=1
+1=PuertoSerial (main)
