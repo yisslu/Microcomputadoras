@@ -1,9 +1,10 @@
-D G "__PCM__" 0 101 ""5.076""
-D G "__DEVICE__" 0 101 "887"
-D G "__DATE__" 0 101 ""09-Jun-23""
-D G "__TIME__" 0 101 ""14:30:56""
-D G "_UNICODE" 0 101 ""?""
-D G "__EVAL" 0 101 ""?"" "Standard Header file for the PIC16F887 device ////////////////"
+F N "MAIN" 0 77 ""
+D G "__PCM__" 0 137 ""5.076""
+D G "__DEVICE__" 0 137 "887"
+D G "__DATE__" 0 137 ""10-Jun-23""
+D G "__TIME__" 0 137 ""22:58:36""
+D G "_UNICODE" 0 137 ""?""
+D G "__EVAL" 0 137 ""?"" "Standard Header file for the PIC16F887 device ////////////////"
 c L "set_tris_a" 1 3 6 "FUNCTION"
 f N "set_tris_a" 1 39 ""
 v L "value" 1 39 "int8" `55 
@@ -1681,25 +1682,52 @@ F N "escribir_i2c" 0 17 ""
 f G "escribir_i2c" 0 17 "void()" `961 
 F N "obtenerTemperatura" 0 18 ""
 f G "obtenerTemperatura" 0 18 "void()" `962 
-V G "contador" 0 20 "int8" `963 
-C L "obtenerTemperatura" 0 13 1 "FUNCTION"
-V G "countAux" 0 21 "int8" `964 
-C L "obtenerTemperatura" 0 13 1 "FUNCTION"
-F N "getch" 0 22 ""
-F B "getch" 0 22 "int8()" `363 
-V G "valor_temperatura" 0 23 "float" `965 
-F N "obtenerTemperatura" 0 25 ""
-F G "obtenerTemperatura" 0 25 "void()" `962 
-F N "escribir_i2c" 0 31 ""
-F G "escribir_i2c" 0 31 "void()" `961  "!   printf("Escribir I2C\n");"
-C L "escribir_i2c" 0 13 4 "FUNCTION"
+F N "leerEntrada" 0 19 ""
+V L "comando" 0 19 "*int8" `964 
+f G "leerEntrada" 0 19 "void(*int8 comando)" `963 
+F N "analizaOpcion" 0 20 ""
+V L "comando" 0 20 "*int8" `966 
+f G "analizaOpcion" 0 20 "int8(*int8 comando)" `965 
+F N "comparaStrings" 0 21 ""
+V L "str1" 0 21 "*int8" `968 
+V L "str2" 0 21 "*int8" `969 
+f G "comparaStrings" 0 21 "int8(*int8 str1,*int8 str2)" `967 
+V G "contador" 0 23 "int8" `972 
+C L "comparaStrings" 0 13 1 "FUNCTION"
+V G "countAux" 0 24 "int8" `973 
+C L "comparaStrings" 0 13 1 "FUNCTION"
+F N "getch" 0 25 ""
+F B "getch" 0 25 "int8()" `363 
+V G "valor_temperatura" 0 26 "float" `974 
+F N "comparaStrings" 0 28 ""
+V L "str1" 0 28 "*int8" `968 
+V L "str2" 0 28 "*int8" `977 
+F G "comparaStrings" 0 28 "int8(*int8 str1,*int8 str2)" `967 
+V L "i" 0 29 "int8" `975 
+F N "obtenerTemperatura" 0 34 ""
+F G "obtenerTemperatura" 0 34 "void()" `962 
+F N "escribir_i2c" 0 40 ""
+F G "escribir_i2c" 0 40 "void()" `961 
+C L "escribir_i2c" 0 13 1 "FUNCTION"
+C L "escribir_i2c" 0 13 1 "FUNCTION"
+F N "leerEntrada" 0 47 ""
+V L "comando" 0 47 "*int8" `977 
+F G "leerEntrada" 0 47 "void(*int8 comando)" `963 
+V L "ptr" 0 48 "*int8" `976 
+V L "ch" 0 49 "int8" `977 
+F N "analizaOpcion" 0 61 ""
+V L "comando" 0 61 "*int8" `990 
+F G "analizaOpcion" 0 61 "int8(*int8 comando)" `965 
+V L "temperaturaString" 0 62 "*int8" `989 
+V L "pwm" 0 63 "*int8" `991 
+V L "motor" 0 64 "*int8" `993 
+V L "leds" 0 65 "*int8" `995 
 C L "MAIN" 0 13 2 "FUNCTION"
-F N "MAIN" 0 41 ""
-F G "MAIN" 0 41 "int8()" `966  "Configuracion *"
-C L "MAIN" 0 13 1 "FUNCTION"
-C L "MAIN" 0 13 1 "FUNCTION"
-C L "MAIN" 0 13 27 "FUNCTION"
-C L "MAIN" 0 13 5 "FUNCTION"
+F N "MAIN" 0 77 ""
+F G "MAIN" 0 77 "int8()" `997  "Configuracion *"
+V L "comando" 0 86 "int8[20]" `1000 
+V L "opcion" 0 88 "int8" `1001 
+C L "MAIN" 0 13 19 "FUNCTION"
 F B "reset_cpu" 0 0
 F B "abs" 1 0
 F B "sleep_ulpwu" 1 0

@@ -1,0 +1,6 @@
+Compiling C:\Users\aaldi\OneDrive - UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO\school\8th-semester\Micro-Tareas\ProyectoFinal\PuertoSerial\PuertoSerial on 10-Jun-23 at 22:58
+>>> Warning 201 "PuertoSerial.c" Line 54(1,1): Assignment inside relational expression
+>>> Warning 202 "PuertoSerial.c" Line 24(6,14): Variable never used:   countAux
+      Memory usage:   ROM=20%      RAM=11% - 24%
+      0 Errors,  2 Warnings.
+Build Successful.

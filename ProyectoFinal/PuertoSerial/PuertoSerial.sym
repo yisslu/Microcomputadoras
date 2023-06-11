@@ -1,12 +1,12 @@
 004-005 @WRITE_PROGRAM_MEMORY8.P1
 004-005 @READ_PROGRAM_MEMORY8.P2
-008     lcdlat
 008     lcd
+008     lcdlat
 015     CCP_1
 015     CCP_1_LOW
 016     CCP_1_HIGH
-01B     CCP_2
 01B     CCP_2_LOW
+01B     CCP_2
 01C     CCP_2_HIGH
 020-021 strtok.save
 022-025 _Randseed
@@ -14,55 +14,92 @@
 027     contador
 028     countAux
 029-02C valor_temperatura
-02D     @PSTRINGCN7_949.P1
-02D-030 @PRINTF_L32D_949FPFPF.P2
-02D-02E @ITOF.P3
-02D     lcd_init.i
-02D     obtenerTemperatura.@SCRATCH1
-02E-031 lcd_init.LCD_INIT_STRING
-02E     @PSTRINGCN7_949.@SCRATCH1
-02F     @PSTRINGCN7_949.@SCRATCH2
-030     @PSTRINGCN7_949.@SCRATCH3
-031     @PRINTF_L32D_949FPFPF.P1
-031     @PSTRINGCN7_949.@SCRATCH4
-032     lcd_init.@SCRATCH1
-032     @PRINTF_L32D_949FPFPF.@SCRATCH1
-033     @PRINTF_L32D_949FPFPF.@SCRATCH2
-034     @PRINTF_L32D_949FPFPF.@SCRATCH3
-035     @PRINTF_L32D_949FPFPF.@SCRATCH4
-036     @PRINTF_L32D_949FPFPF.@SCRATCH5
-037     @PRINTF_L32D_949FPFPF.@SCRATCH6
-038     @PRINTF_L32D_949FPFPF.@SCRATCH7
-039     @PRINTF_L32D_949FPFPF.@SCRATCH8
-03A-03D @DIV3232.P1
-03A     lcd_putc.c
-03A-03D @FTOSD.P1
-03A-03D @MULFF.P2
-03B     lcd_gotoxy.x
-03B     @delay_ms1.P1
-03C     lcd_gotoxy.y
-03D     lcd_gotoxy.address
-03E-041 @DIV3232.P1
-03E-041 @MULFF.P2
-03E     lcd_gotoxy.@SCRATCH1
-03E     @FTOSD.@SCRATCH1
-03F     lcd_send_byte.address
-040     lcd_send_byte.n
-041     lcd_read_byte.low
-041     lcd_send_byte.@SCRATCH1
-042     lcd_send_nibble.n
-042     lcd_read_byte.high
-042     @MULFF.@SCRATCH1
-042     @DIV3232.@SCRATCH1
-043     @MULFF.@SCRATCH2
-043     lcd_read_byte.@SCRATCH1
-043     @DIV3232.@SCRATCH2
-044     @MULFF.@SCRATCH3
-044     @DIV3232.@SCRATCH3
-045     @MULFF.@SCRATCH4
-045     @DIV3232.@SCRATCH4
-046     @MULFF.@SCRATCH5
-046     @DIV3232.@SCRATCH5
+02D-02E @sprintf_string
+02F-042 MAIN.comando
+043     MAIN.opcion
+044     @PSTRINGCN7_949.P1
+044-045 analizaOpcion.comando
+044-045 leerEntrada.comando
+044     lcd_init.i
+044-045 @ITOF.P1
+044-047 @PRINTF_L32D_949FPFPF.P2
+044     obtenerTemperatura.@SCRATCH1
+044     @PSTRINGC_9600_62_63.@SCRATCH1
+045-048 lcd_init.LCD_INIT_STRING
+045     @PSTRINGC_9600_62_63.@SCRATCH2
+045     @PSTRINGCN7_949.@SCRATCH1
+046-047 leerEntrada.ptr
+046-047 analizaOpcion.temperaturaString
+046     @PSTRINGCN7_949.@SCRATCH2
+047     @PSTRINGCN7_949.@SCRATCH3
+048     @PRINTF_L32D_949FPFPF.P1
+048-053 analizaOpcion.@STRING990
+048     leerEntrada.ch
+048     @PSTRINGCN7_949.@SCRATCH4
+049     @PSTRINGCN7_9600_62_63.P1
+049     lcd_init.@SCRATCH1
+049     leerEntrada.@SCRATCH1
+049     @PSTRINGC7_9600_62_63.@SCRATCH1
+049     @PSTRINGR_9600_62_63.@SCRATCH1
+049     @PRINTF_L32D_949FPFPF.@SCRATCH1
+04A     leerEntrada.@SCRATCH2
+04A     @PSTRINGC7_9600_62_63.@SCRATCH2
+04A     @PSTRINGCN7_9600_62_63.@SCRATCH1
+04A     @PSTRINGR_9600_62_63.@SCRATCH2
+04A     @PRINTF_L32D_949FPFPF.@SCRATCH2
+04B     @PSTRINGC7_9600_62_63.@SCRATCH3
+04B     @PSTRINGCN7_9600_62_63.@SCRATCH2
+04B     @PRINTF_L32D_949FPFPF.@SCRATCH3
+04C     @PSTRINGC7_9600_62_63.@SCRATCH4
+04C     @PSTRINGCN7_9600_62_63.@SCRATCH3
+04C     @PRINTF_L32D_949FPFPF.@SCRATCH4
+04D     @PSTRINGCN7_9600_62_63.@SCRATCH4
+04D     @PRINTF_L32D_949FPFPF.@SCRATCH5
+04E     @PRINTF_L32D_949FPFPF.@SCRATCH6
+04F     @PRINTF_L32D_949FPFPF.@SCRATCH7
+050     @PRINTF_L32D_949FPFPF.@SCRATCH8
+051-054 @FTOSD.P1
+051     lcd_putc.c
+051-054 @MULFF.P1
+051-054 @DIV3232.P2
+052     @delay_ms1.P1
+052     lcd_gotoxy.x
+053     lcd_gotoxy.y
+054-055 analizaOpcion.pwm
+054     lcd_gotoxy.address
+055-058 @DIV3232.P1
+055-058 @MULFF.P2
+055     lcd_gotoxy.@SCRATCH1
+055     @FTOSD.@SCRATCH1
+056-059 analizaOpcion.@STRING992
+056     lcd_send_byte.address
+057     lcd_send_byte.n
+058     lcd_read_byte.low
+058     lcd_send_byte.@SCRATCH1
+059     lcd_read_byte.high
+059     lcd_send_nibble.n
+059     @MULFF.@SCRATCH1
+059     @DIV3232.@SCRATCH1
+05A-05B analizaOpcion.motor
+05A     @MULFF.@SCRATCH2
+05A     lcd_read_byte.@SCRATCH1
+05A     @DIV3232.@SCRATCH2
+05B     @MULFF.@SCRATCH3
+05B     @DIV3232.@SCRATCH3
+05C-061 analizaOpcion.@STRING994
+05C     @MULFF.@SCRATCH4
+05C     @DIV3232.@SCRATCH4
+05D     @MULFF.@SCRATCH5
+05D     @DIV3232.@SCRATCH5
+062-063 analizaOpcion.leds
+064-068 analizaOpcion.@STRING996
+069-06A comparaStrings.str1
+06B-06C comparaStrings.str2
+06D     comparaStrings.i
+06E-06F strlen.s
+06E     comparaStrings.@SCRATCH1
+070-071 strlen.sc
+072     strlen.@SCRATCH1
 077     @SCRATCH
 078     @SCRATCH
 078     _RETURN_
@@ -75,45 +112,56 @@
 10D-10E @READ_PROGRAM_MEMORY8.P2
 
 ROM Allocation:
-000004  @const969.call
-00000B  @delay_ms1
-00001F  lcd_send_nibble
-00002E  lcd_read_nibble
-000034  lcd_send_byte
-00003A  lcd_read_byte
-000076  lcd_init
-0000B4  obtenerTemperatura
-0000C4  @ITOF
-0000EB  lcd_gotoxy
-0000FD  lcd_putc
-000129  @PSTRINGCN7_949
-000180  @DIV3232
-0001CF  @PRINTF_L32D_949FPFPF
-0001E3  @MULFF
-000269  @FTOSD
-000324  MAIN
-000324  @cinit1
-00035D  @cinit2
+000004  @const978.call
+00000E  @const985.call
+00001C  @const1002.call
+00008F  @const1004.call
+000096  @delay_ms1
+0000AA  lcd_send_nibble
+0000B9  lcd_read_nibble
+0000BF  lcd_send_byte
+0000C5  lcd_read_byte
+000101  lcd_init
+00013F  leerEntrada
+000148  @PSTRINGC7_9600_62_63
+0001D2  @PSTRINGCN7_9600_62_63
+00022F  @PSTRINGR_9600_62_63
+000250  comparaStrings
+000255  strlen
+000290  analizaOpcion
+000312  @PSTRINGC_9600_62_63
+000341  obtenerTemperatura
+000351  @ITOF
+000378  lcd_gotoxy
+00038A  lcd_putc
+0003B6  @PSTRINGCN7_949
+00040D  @DIV3232
+00045C  @PRINTF_L32D_949FPFPF
+000470  @MULFF
+0004F6  @FTOSD
+0005B1  @cinit1
+0005B1  MAIN
+0005EC  @cinit2
 0136  StrtoulGO
 0136  StrtolGO
 
 Project Directory:
-    C:\Users\aaldi\Desktop\PuertoSerial\
+    C:\Users\aaldi\OneDrive - UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO\school\8th-semester\Micro-Tareas\ProyectoFinal\PuertoSerial\
 
 Project Files:
-    PuertoSerial.c                                          [09-Jun-23 14:30  CRC=6784A5D7]
-    ..\..\..\..\Program Files (x86)\PICC\Devices\16f887.h   [15-Jan-18 15:53  CRC=9C71CB72]
-    ..\..\..\..\Program Files (x86)\PICC\Drivers\stdlib.h   [29-Jun-16 09:34  CRC=7E9CC16B]
-    ..\..\..\..\Program Files (x86)\PICC\Drivers\stddef.h   [05-Sep-14 11:47  CRC=897CEC6C]
-    ..\..\..\..\Program Files (x86)\PICC\Drivers\string.h   [26-Mar-15 12:34  CRC=C4814297]
-    ..\..\..\..\Program Files (x86)\PICC\Drivers\ctype.h    [03-Jan-08 14:55  CRC=2D1F019F]
-    ..\..\..\..\Program Files (x86)\PICC\Drivers\stdio.h    [31-Jul-07 14:24  CRC=4E4534F4]
-    ..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c      [22-Feb-16 09:05  CRC=D1A6378A]
+    PuertoSerial.c                                          [10-Jun-23 22:58  CRC=EC25EE6A]
+    ..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16f887.h [15-Jan-18 15:53  CRC=9C71CB72]
+    ..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\stdlib.h [29-Jun-16 09:34  CRC=7E9CC16B]
+    ..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\stddef.h [05-Sep-14 11:47  CRC=897CEC6C]
+    ..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\string.h [26-Mar-15 12:34  CRC=C4814297]
+    ..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\ctype.h [03-Jan-08 14:55  CRC=2D1F019F]
+    ..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\stdio.h [31-Jul-07 14:24  CRC=4E4534F4]
+    ..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c [22-Feb-16 09:05  CRC=D1A6378A]
 
-Source signature=EF42075E
+Source signature=73E34FF1
 Program memory checksum=0000
 Program memory CRC=0000
-Hex file CRC=FBCD
+Hex file CRC=624D
 
 Units:
     PuertoSerial (main)

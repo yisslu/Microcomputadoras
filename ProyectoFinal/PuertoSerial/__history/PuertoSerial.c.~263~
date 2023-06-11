@@ -1,12 +1,18 @@
 #include <16f887.h>
 #include<stdlib.h>
 #include<stdio.h>
+
 #fuses HS, NOWDT, NOPROTECT, NOLVP
+
 #use delay(clock=20M)
 #use rs232(baud=9600, xmit=PIN_C6, rcv=PIN_C7)
 #use i2c(MASTER, SDA=PIN_C4, SCL=PIN_C3,SLOW, NOFORCE_SW)
 //#include "i2c-lcd.c"
 #include <lcd.c>
+
+/* Definicion de constantes */
+#define MAX_LINE 1 // Maximo de lineas que el usuario puede ingresar a la terminal
+
 /* Prototipo de funciones */
 void escribir_i2c();
 void obtenerTemperatura();
@@ -45,27 +51,36 @@ void leerEntrada(char *comando) {
    ptr = comando;
    printf("Ingrese comando: \n\r");
    
-   while ((ch = getchar()) != '\r') {printf("%c", ch);*ptr++ = (char)ch;} 
-   printf("\n\r");
-   *ptr++ = 0;
+   while ((ch = getchar()) != '\r') *ptr++ = (char)ch; *ptr++ = 0;
    
    printf("The given string is : %s\n\r", comando);
 }
 
 int analizaOpcion(char *comando) {
-   char *temperaturaString = "temperatura", 
-        *pwm = "pwm", 
-        *motor = "motor", 
-        *leds = "leds";
+   char *ch;
+   ch = comando;
+   while (*ch != '\0') {
+      printf("%c ", *ch);
+      ch++;
+   }
+   char *temperaturaString = "temperatura", *pwm = "pwm", *motor = "motor", *leds = "leds";
    
-   if(comparaStrings(comando, temperaturaString)) return 0;
-   else if(comparaStrings(comando, pwm)) return 1;
-   else if(comparaStrings(comando, motor)) return 2;
-   else if(comparaStrings(comando, leds)) return 3; 
-  
+   // Si el comando es 'temperatura'
+   // Si es pwm
+   // Si es motor
+   
+   if(comparaSiEsMotor(comando, motor)) {
+      printf("Motor es el comando");
+   }else if(comparaSiEsLeds(comando, leds)) {
+      printf("Leds");
+      return 4; 
+   }
+   
    return -1;
 }
 
+/* Enviar al correo: moises.melendes@fi-b.unam.mx*/
+/* Asunto: Diagrama Proteus Grupo 4*/
 int main() {
    /* Configuracion */
     lcd_init();
@@ -73,26 +88,25 @@ int main() {
     enable_interrupts(GLOBAL);
     Setup_port_a(ALL_ANALOG);
     Setup_adc(ADC_CLOCK_INTERNAL);
-
+    
+    char comando[20];
+    leerEntrada(&comando);
+    int opcion = analizaOpcion(comando);
+    switch (opcion) {
+      case 0:
+         break;
+      case 1: 
+         break;
+      case 2:
+         break;
+      case 3:
+         break;
+      case 4:
+         break;
+      default:
+         break;
+    }
     while (TRUE) {
-       char comando[20];
-       leerEntrada(&comando);
-       int opcion = analizaOpcion(comando);
-       switch (opcion) {
-         case 0:
-            
-            break;
-         case 1: 
-            break;
-         case 2:
-            break;
-         case 3:
-            
-            break;
-         default:
-            printf("Ups, intenta de nuevo un comando válido\n\rAlgunos comandos validos son:\n\rmotor on, pwm=50, leds off, temperatura\n\r");
-            break;
-        }
         obtenerTemperatura();
         lcd_gotoxy(0, 1);
         printf(lcd_putc, "Temp.: %f C\n\r", valor_temperatura);
