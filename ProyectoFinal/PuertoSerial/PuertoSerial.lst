@@ -1,8 +1,8 @@
-CCS PCM C Compiler, Version 5.076, 2401               11-jun.-23 21:13
+CCS PCM C Compiler, Version 5.076, 2401               11-jun.-23 21:35
 
                Filename:   \\Mac\Home\Documents\Development\Otros\Microcomputadoras\ProyectoFinal\PuertoSerial\PuertoSerial.lst
 
-               ROM used:   2141 words (26%)
+               ROM used:   2186 words (27%)
                            Largest free fragment is 2048
                RAM used:   41 (11%) at main() level
                            147 (40%) worst case
@@ -56,7 +56,7 @@ CCS PCM C Compiler, Version 5.076, 2401               11-jun.-23 21:13
 001F:  DATA 3A,10
 0020:  DATA 25,32
 0021:  DATA 8A,06
-0022:  DATA 80,3E
+0022:  DATA 80,00
 0023:  DATA A0,22
 0024:  DATA 73,38
 0025:  DATA 65,39
@@ -5247,6 +5247,60 @@ CCS PCM C Compiler, Version 5.076, 2401               11-jun.-23 21:13
 03CA:  GOTO   063 (RETURN)
 .................... } 
 ....................  
+.................... void encenderMotor() 
+.................... { 
+....................     output_low(PIN_C0); // Encender el motor conectado al pin C0 (Logica negada) 
+*
+0705:  BCF    26.0
+0706:  MOVF   26,W
+0707:  BSF    03.5
+0708:  MOVWF  07
+0709:  BCF    03.5
+070A:  BCF    07.0
+070B:  BSF    0A.3
+070C:  BCF    0A.4
+070D:  GOTO   0E9 (RETURN)
+.................... } 
+....................  
+.................... void apagarMotor() 
+.................... { 
+....................     output_high(PIN_C0); // Apagar el motor conectado al pin C0 (Logica negada) 
+070E:  BCF    26.0
+070F:  MOVF   26,W
+0710:  BSF    03.5
+0711:  MOVWF  07
+0712:  BCF    03.5
+0713:  BSF    07.0
+0714:  BSF    0A.3
+0715:  BCF    0A.4
+0716:  GOTO   106 (RETURN)
+.................... } 
+....................  
+.................... void prenderLeds() 
+.................... { 
+....................     output_b(0xFF); // Prender todos los LEDs del puerto B 
+0717:  BSF    03.5
+0718:  CLRF   06
+0719:  MOVLW  FF
+071A:  BCF    03.5
+071B:  MOVWF  06
+071C:  BSF    0A.3
+071D:  BCF    0A.4
+071E:  GOTO   123 (RETURN)
+.................... } 
+....................  
+.................... void apagarLeds() 
+.................... { 
+....................     output_b(0x00); // Apagar todos los LEDs del puerto B 
+071F:  BSF    03.5
+0720:  CLRF   06
+0721:  BCF    03.5
+0722:  CLRF   06
+0723:  BSF    0A.3
+0724:  BCF    0A.4
+0725:  GOTO   140 (RETURN)
+.................... } 
+....................  
 .................... int main() 
 *
 0800:  MOVF   03,W
@@ -5402,14 +5456,14 @@ CCS PCM C Compiler, Version 5.076, 2401               11-jun.-23 21:13
 0889:  GOTO   0E2
 088A:  XORLW  01
 088B:  BTFSC  03.2
-088C:  GOTO   0FC
+088C:  GOTO   0FF
 088D:  XORLW  07
 088E:  BTFSC  03.2
-088F:  GOTO   116
+088F:  GOTO   11C
 0890:  XORLW  01
 0891:  BTFSC  03.2
-0892:  GOTO   130
-0893:  GOTO   14A
+0892:  GOTO   139
+0893:  GOTO   156
 ....................         case 0: 
 ....................             lcd_putc('\f'); 
 0894:  MOVLW  0C
@@ -5435,7 +5489,7 @@ CCS PCM C Compiler, Version 5.076, 2401               11-jun.-23 21:13
 08A6:  CALL   47B
 08A7:  BSF    0A.3
 ....................             break; 
-08A8:  GOTO   154
+08A8:  GOTO   160
 ....................         // Temperatura 
 ....................         case 1: 
 ....................             lcd_putc('\f'); 
@@ -5500,7 +5554,7 @@ CCS PCM C Compiler, Version 5.076, 2401               11-jun.-23 21:13
 08DF:  CALL   084
 08E0:  BSF    0A.3
 ....................             break; 
-08E1:  GOTO   154
+08E1:  GOTO   160
 ....................  
 ....................         // Motor on 
 ....................         case 2: 
@@ -5510,156 +5564,172 @@ CCS PCM C Compiler, Version 5.076, 2401               11-jun.-23 21:13
 08E4:  BCF    0A.3
 08E5:  CALL   44F
 08E6:  BSF    0A.3
+....................             encenderMotor(); 
+08E7:  BCF    0A.3
+08E8:  GOTO   705
+08E9:  BSF    0A.3
 ....................             lcd_gotoxy(0, 1); 
-08E7:  CLRF   52
-08E8:  MOVLW  01
-08E9:  MOVWF  53
-08EA:  BCF    0A.3
-08EB:  CALL   43D
-08EC:  BSF    0A.3
+08EA:  CLRF   52
+08EB:  MOVLW  01
+08EC:  MOVWF  53
+08ED:  BCF    0A.3
+08EE:  CALL   43D
+08EF:  BSF    0A.3
 ....................             printf(lcd_putc, " Motor ON"); 
-08ED:  MOVLW  35
-08EE:  BSF    03.6
-08EF:  MOVWF  0D
-08F0:  MOVLW  00
-08F1:  MOVWF  0F
-08F2:  BCF    0A.3
-08F3:  BCF    03.6
-08F4:  CALL   47B
-08F5:  BSF    0A.3
+08F0:  MOVLW  35
+08F1:  BSF    03.6
+08F2:  MOVWF  0D
+08F3:  MOVLW  00
+08F4:  MOVWF  0F
+08F5:  BCF    0A.3
+08F6:  BCF    03.6
+08F7:  CALL   47B
+08F8:  BSF    0A.3
 ....................             delay_ms(200); 
-08F6:  MOVLW  C8
-08F7:  MOVWF  52
-08F8:  BCF    0A.3
-08F9:  CALL   084
-08FA:  BSF    0A.3
+08F9:  MOVLW  C8
+08FA:  MOVWF  52
+08FB:  BCF    0A.3
+08FC:  CALL   084
+08FD:  BSF    0A.3
 ....................             break; 
-08FB:  GOTO   154
+08FE:  GOTO   160
 ....................  
 ....................         // Motor off 
 ....................         case 3: 
 ....................             lcd_putc('\f'); 
-08FC:  MOVLW  0C
-08FD:  MOVWF  51
-08FE:  BCF    0A.3
-08FF:  CALL   44F
-0900:  BSF    0A.3
-....................             lcd_gotoxy(0, 1); 
-0901:  CLRF   52
-0902:  MOVLW  01
-0903:  MOVWF  53
+08FF:  MOVLW  0C
+0900:  MOVWF  51
+0901:  BCF    0A.3
+0902:  CALL   44F
+0903:  BSF    0A.3
+....................             apagarMotor(); 
 0904:  BCF    0A.3
-0905:  CALL   43D
+0905:  GOTO   70E
 0906:  BSF    0A.3
+....................             lcd_gotoxy(0, 1); 
+0907:  CLRF   52
+0908:  MOVLW  01
+0909:  MOVWF  53
+090A:  BCF    0A.3
+090B:  CALL   43D
+090C:  BSF    0A.3
 ....................             printf(lcd_putc, " Motor OFF"); 
-0907:  MOVLW  3A
-0908:  BSF    03.6
-0909:  MOVWF  0D
-090A:  MOVLW  00
-090B:  MOVWF  0F
-090C:  BCF    0A.3
-090D:  BCF    03.6
-090E:  CALL   47B
-090F:  BSF    0A.3
-....................             delay_ms(200); 
-0910:  MOVLW  C8
-0911:  MOVWF  52
+090D:  MOVLW  3A
+090E:  BSF    03.6
+090F:  MOVWF  0D
+0910:  MOVLW  00
+0911:  MOVWF  0F
 0912:  BCF    0A.3
-0913:  CALL   084
-0914:  BSF    0A.3
+0913:  BCF    03.6
+0914:  CALL   47B
+0915:  BSF    0A.3
+....................             delay_ms(200); 
+0916:  MOVLW  C8
+0917:  MOVWF  52
+0918:  BCF    0A.3
+0919:  CALL   084
+091A:  BSF    0A.3
 ....................             break; 
-0915:  GOTO   154
+091B:  GOTO   160
 ....................  
 ....................         // Leds on 
 ....................         case 4: 
 ....................             lcd_putc('\f'); 
-0916:  MOVLW  0C
-0917:  MOVWF  51
-0918:  BCF    0A.3
-0919:  CALL   44F
-091A:  BSF    0A.3
-....................             lcd_gotoxy(0, 1); 
-091B:  CLRF   52
-091C:  MOVLW  01
-091D:  MOVWF  53
+091C:  MOVLW  0C
+091D:  MOVWF  51
 091E:  BCF    0A.3
-091F:  CALL   43D
+091F:  CALL   44F
 0920:  BSF    0A.3
-....................             printf(lcd_putc, " Leds ON"); 
-0921:  MOVLW  40
-0922:  BSF    03.6
-0923:  MOVWF  0D
-0924:  MOVLW  00
-0925:  MOVWF  0F
-0926:  BCF    0A.3
-0927:  BCF    03.6
-0928:  CALL   47B
+....................             prenderLeds(); 
+0921:  BCF    0A.3
+0922:  GOTO   717
+0923:  BSF    0A.3
+....................             lcd_gotoxy(0, 1); 
+0924:  CLRF   52
+0925:  MOVLW  01
+0926:  MOVWF  53
+0927:  BCF    0A.3
+0928:  CALL   43D
 0929:  BSF    0A.3
+....................             printf(lcd_putc, " Leds ON"); 
+092A:  MOVLW  40
+092B:  BSF    03.6
+092C:  MOVWF  0D
+092D:  MOVLW  00
+092E:  MOVWF  0F
+092F:  BCF    0A.3
+0930:  BCF    03.6
+0931:  CALL   47B
+0932:  BSF    0A.3
 ....................             delay_ms(200); 
-092A:  MOVLW  C8
-092B:  MOVWF  52
-092C:  BCF    0A.3
-092D:  CALL   084
-092E:  BSF    0A.3
+0933:  MOVLW  C8
+0934:  MOVWF  52
+0935:  BCF    0A.3
+0936:  CALL   084
+0937:  BSF    0A.3
 ....................             break; 
-092F:  GOTO   154
+0938:  GOTO   160
 ....................  
 ....................         // Leds off 
 ....................         case 5: 
 ....................             lcd_putc('\f'); 
-0930:  MOVLW  0C
-0931:  MOVWF  51
-0932:  BCF    0A.3
-0933:  CALL   44F
-0934:  BSF    0A.3
+0939:  MOVLW  0C
+093A:  MOVWF  51
+093B:  BCF    0A.3
+093C:  CALL   44F
+093D:  BSF    0A.3
+....................             apagarLeds(); 
+093E:  BCF    0A.3
+093F:  GOTO   71F
+0940:  BSF    0A.3
 ....................             lcd_gotoxy(0, 1); 
-0935:  CLRF   52
-0936:  MOVLW  01
-0937:  MOVWF  53
-0938:  BCF    0A.3
-0939:  CALL   43D
-093A:  BSF    0A.3
+0941:  CLRF   52
+0942:  MOVLW  01
+0943:  MOVWF  53
+0944:  BCF    0A.3
+0945:  CALL   43D
+0946:  BSF    0A.3
 ....................             printf(lcd_putc, " Leds OFF"); 
-093B:  MOVLW  45
-093C:  BSF    03.6
-093D:  MOVWF  0D
-093E:  MOVLW  00
-093F:  MOVWF  0F
-0940:  BCF    0A.3
-0941:  BCF    03.6
-0942:  CALL   47B
-0943:  BSF    0A.3
+0947:  MOVLW  45
+0948:  BSF    03.6
+0949:  MOVWF  0D
+094A:  MOVLW  00
+094B:  MOVWF  0F
+094C:  BCF    0A.3
+094D:  BCF    03.6
+094E:  CALL   47B
+094F:  BSF    0A.3
 ....................             delay_ms(200); 
-0944:  MOVLW  C8
-0945:  MOVWF  52
-0946:  BCF    0A.3
-0947:  CALL   084
-0948:  BSF    0A.3
+0950:  MOVLW  C8
+0951:  MOVWF  52
+0952:  BCF    0A.3
+0953:  CALL   084
+0954:  BSF    0A.3
 ....................             break; 
-0949:  GOTO   154
+0955:  GOTO   160
 ....................  
 ....................         default: 
 ....................             printf("Ups, intenta de nuevo un comando invalido\n\rAlgunos comandos validos son:\n\rmotor on, pwm=50, leds off, temperatura\n\r"); 
-094A:  MOVLW  4A
-094B:  BSF    03.6
-094C:  MOVWF  0D
-094D:  MOVLW  00
-094E:  MOVWF  0F
-094F:  BCF    0A.3
-0950:  BCF    03.6
-0951:  CALL   12D
-0952:  BSF    0A.3
+0956:  MOVLW  4A
+0957:  BSF    03.6
+0958:  MOVWF  0D
+0959:  MOVLW  00
+095A:  MOVWF  0F
+095B:  BCF    0A.3
+095C:  BCF    03.6
+095D:  CALL   12D
+095E:  BSF    0A.3
 ....................             break; 
-0953:  GOTO   154
+095F:  GOTO   160
 ....................         } 
-0954:  GOTO   058
+0960:  GOTO   058
 ....................     } 
 ....................  
 ....................     return 0; 
-0955:  MOVLW  00
-0956:  MOVWF  78
+0961:  MOVLW  00
+0962:  MOVWF  78
 .................... } 
-0957:  SLEEP
+0963:  SLEEP
 
 Configuration Fuses:
    Word  1: 2FE2   HS NOWDT PUT MCLR NOPROTECT NOCPD BROWNOUT IESO FCMEN NOLVP NODEBUG

@@ -1,12 +1,12 @@
-004-005 @WRITE_PROGRAM_MEMORY8.P1
-004-005 @READ_PROGRAM_MEMORY8.P2
+004-005 @READ_PROGRAM_MEMORY8.P1
+004-005 @WRITE_PROGRAM_MEMORY8.P2
 008     lcdlat
 008     lcd
-015     CCP_1
 015     CCP_1_LOW
+015     CCP_1
 016     CCP_1_HIGH
-01B     CCP_2_LOW
 01B     CCP_2
+01B     CCP_2_LOW
 01C     CCP_2_HIGH
 020-021 strtok.save
 022-025 _Randseed
@@ -19,19 +19,19 @@
 043     MAIN.opcion
 044-047 @PRINTF_L32D_949FPFPF.P1
 044-045 leerEntrada.comando
-044     @PSTRINGCN7_949.P1
+044-045 @ITOF.P1
+044     @PSTRINGCN7_949.P2
 044-045 getCommand.entry
 044     lcd_init.i
 044     @PRINTF_D_9600_62_63.P1
-044-045 @ITOF.P2
 044     obtenerTemperatura.@SCRATCH1
 044     @PSTRINGC7_949.@SCRATCH1
-045     @PRINTF_D_9600_62_63.P1
 045-048 lcd_init.LCD_INIT_STRING
+045     @PRINTF_D_9600_62_63.P1
 045     @PSTRINGC7_949.@SCRATCH2
 045     @PSTRINGCN7_949.@SCRATCH1
-046-047 leerEntrada.ptr
 046-059 getCommand.command
+046-047 leerEntrada.ptr
 046     @PRINTF_D_9600_62_63.@SCRATCH1
 046     @PSTRINGC7_949.@SCRATCH3
 046     @PSTRINGCN7_949.@SCRATCH2
@@ -68,10 +68,10 @@
 04E     @PRINTF_L32D_949FPFPF.@SCRATCH6
 04F     @PRINTF_L32D_949FPFPF.@SCRATCH7
 050     @PRINTF_L32D_949FPFPF.@SCRATCH8
-051-054 @DIV3232.P1
-051-054 @FTOSD.P2
-051-054 @MULFF.P3
 051     lcd_putc.c
+051-054 @DIV3232.P1
+051-054 @MULFF.P2
+051-054 @FTOSD.P3
 052     lcd_gotoxy.x
 052     @delay_ms1.P1
 053     lcd_gotoxy.y
@@ -84,8 +84,8 @@
 057     lcd_send_byte.n
 058     lcd_read_byte.low
 058     lcd_send_byte.@SCRATCH1
-059     lcd_read_byte.high
 059     lcd_send_nibble.n
+059     lcd_read_byte.high
 059     @MULFF.@SCRATCH1
 059     @DIV3232.@SCRATCH1
 05A-06D getCommand.parameter
@@ -133,14 +133,14 @@
 ROM Allocation:
 000004  @const981.call
 00000E  @const988.call
-00001C  @const1015.call
-000023  @const1022.call
-00002E  @const1024.call
-000035  @const1035.call
-00003A  @const1036.call
-000040  @const1037.call
-000045  @const1038.call
-00004A  @const1039.call
+00001C  @const1019.call
+000023  @const1026.call
+00002E  @const1028.call
+000035  @const1039.call
+00003A  @const1040.call
+000040  @const1041.call
+000045  @const1042.call
+00004A  @const1043.call
 000084  @delay_ms1
 000098  lcd_send_nibble
 0000A7  lcd_read_nibble
@@ -165,6 +165,10 @@ ROM Allocation:
 0005B0  @PRINTF_L32D_949FPFPF
 0005C4  @MULFF
 00064A  @FTOSD
+000705  encenderMotor
+00070E  apagarMotor
+000717  prenderLeds
+00071F  apagarLeds
 000800  @cinit1
 000800  MAIN
 00083B  @cinit2
@@ -175,7 +179,7 @@ Project Directory:
     \\Mac\Home\Documents\Development\Otros\Microcomputadoras\ProyectoFinal\PuertoSerial\
 
 Project Files:
-    PuertoSerial.c                                          [11-jun.-23 21:13  CRC=509F1EF3]
+    PuertoSerial.c                                          [11-jun.-23 21:35  CRC=BF1A8EA7]
     C:\Program Files (x86)\PICC\Devices\16f887.h            [15-ene.-18 15:53  CRC=9C71CB72]
     C:\Program Files (x86)\PICC\Drivers\stdio.h             [31-jul.-07 14:24  CRC=4E4534F4]
     C:\Program Files (x86)\PICC\Drivers\string.h            [26-mar.-15 12:34  CRC=C4814297]
@@ -184,10 +188,10 @@ Project Files:
     C:\Program Files (x86)\PICC\Drivers\stdlib.h            [29-jun.-16 09:34  CRC=7E9CC16B]
     C:\Program Files (x86)\PICC\Drivers\lcd.c               [22-feb.-16 09:05  CRC=D1A6378A]
 
-Source signature=D85C807A
+Source signature=46D7F02E
 Program memory checksum=0000
 Program memory CRC=0000
-Hex file CRC=AAFA
+Hex file CRC=1F54
 
 Units:
     PuertoSerial (main)

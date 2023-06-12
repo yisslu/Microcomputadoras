@@ -1,9 +1,9 @@
-D G "__PCM__" 0 201 ""5.076""
-D G "__DEVICE__" 0 201 "887"
-D G "__DATE__" 0 201 ""11-jun.-23""
-D G "__TIME__" 0 201 ""21:13:51""
-D G "_UNICODE" 0 201 ""?""
-D G "__EVAL" 0 201 ""?"" "Standard Header file for the PIC16F887 device ////////////////"
+D G "__PCM__" 0 225 ""5.076""
+D G "__DEVICE__" 0 225 "887"
+D G "__DATE__" 0 225 ""11-jun.-23""
+D G "__TIME__" 0 225 ""21:35:44""
+D G "_UNICODE" 0 225 ""?""
+D G "__EVAL" 0 225 ""?"" "Standard Header file for the PIC16F887 device ////////////////"
 c L "set_tris_a" 1 3 6 "FUNCTION"
 f N "set_tris_a" 1 39 ""
 v L "value" 1 39 "int8" `55 
@@ -1732,12 +1732,24 @@ V L "leds" 0 89 "*int8" `1003
 V L "offStr" 0 90 "*int8" `1005 
 V L "onStr" 0 91 "*int8" `1007 
 V L "j" 0 101 "int8" `1009 
-F N "MAIN" 0 130 ""
-F G "MAIN" 0 131 "int8()" `1010  "Configuracion *"
+F N "encenderMotor" 0 130 ""
+F G "encenderMotor" 0 131 "void()" `1010 
+C L "encenderMotor" 0 11 1 "FUNCTION"
+F N "apagarMotor" 0 135 ""
+F G "apagarMotor" 0 136 "void()" `1011 
+C L "apagarMotor" 0 11 1 "FUNCTION"
+F N "prenderLeds" 0 140 ""
+F G "prenderLeds" 0 141 "void()" `1012 
+C L "prenderLeds" 0 11 1 "FUNCTION"
+F N "apagarLeds" 0 145 ""
+F G "apagarLeds" 0 146 "void()" `1013 
+C L "apagarLeds" 0 11 1 "FUNCTION"
+F N "MAIN" 0 150 ""
+F G "MAIN" 0 151 "int8()" `1014  "Configuracion *"
 C L "MAIN" 0 11 1 "FUNCTION"
-V L "comando" 0 140 "int8[20]" `1013 
+V L "comando" 0 160 "int8[20]" `1017 
 C L "MAIN" 0 11 1 "FUNCTION"
-V L "opcion" 0 143 "int8" `1014 
+V L "opcion" 0 163 "int8" `1018 
 C L "MAIN" 0 11 1 "FUNCTION"
 C L "MAIN" 0 11 1 "FUNCTION"
 C L "MAIN" 0 11 1 "FUNCTION"

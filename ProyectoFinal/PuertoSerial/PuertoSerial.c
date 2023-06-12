@@ -127,6 +127,26 @@ int getCommand(char* entry)
     return -1;
 }
 
+void encenderMotor()
+{
+    output_low(PIN_C0); // Encender el motor conectado al pin C0 (Logica negada)
+}
+
+void apagarMotor()
+{
+    output_high(PIN_C0); // Apagar el motor conectado al pin C0 (Logica negada)
+}
+
+void prenderLeds()
+{
+    output_b(0xFF); // Prender todos los LEDs del puerto B
+}
+
+void apagarLeds()
+{
+    output_b(0x00); // Apagar todos los LEDs del puerto B
+}
+
 int main()
 {
     /* Configuracion */
@@ -160,6 +180,7 @@ int main()
         // Motor on
         case 2:
             lcd_putc('\f');
+            encenderMotor();
             lcd_gotoxy(0, 1);
             printf(lcd_putc, " Motor ON");
             delay_ms(200);
@@ -168,6 +189,7 @@ int main()
         // Motor off
         case 3:
             lcd_putc('\f');
+            apagarMotor();
             lcd_gotoxy(0, 1);
             printf(lcd_putc, " Motor OFF");
             delay_ms(200);
@@ -176,6 +198,7 @@ int main()
         // Leds on
         case 4:
             lcd_putc('\f');
+            prenderLeds();
             lcd_gotoxy(0, 1);
             printf(lcd_putc, " Leds ON");
             delay_ms(200);
@@ -184,6 +207,7 @@ int main()
         // Leds off
         case 5:
             lcd_putc('\f');
+            apagarLeds();
             lcd_gotoxy(0, 1);
             printf(lcd_putc, " Leds OFF");
             delay_ms(200);

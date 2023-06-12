@@ -1,7 +1,7 @@
-Compiling \\Mac\Home\Documents\Development\Otros\Microcomputadoras\ProyectoFinal\PuertoSerial\PuertoSerial on 11-jun.-23 at 21:13
+Compiling \\Mac\Home\Documents\Development\Otros\Microcomputadoras\ProyectoFinal\PuertoSerial\PuertoSerial on 11-jun.-23 at 21:35
 >>> Warning 201 "PuertoSerial.c" Line 71(1,1): Assignment inside relational expression
 >>> Warning 202 "PuertoSerial.c" Line 20(6,14): Variable never used:   countAux
 >>> Warning 202 "PuertoSerial.c" Line 87(11,14): Variable never used:   pwm
-      Memory usage:   ROM=26%      RAM=11% - 40%
+      Memory usage:   ROM=27%      RAM=11% - 40%
       0 Errors,  3 Warnings.
 Build Successful.

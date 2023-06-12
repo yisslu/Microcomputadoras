@@ -1,5 +1,5 @@
 ÀÄPuertoSerial
-   ÀÄMAIN  1/344  Ram=21
+   ÀÄMAIN  1/356  Ram=21
       ÃÄ@cinit1  (Inline)  Ram=0
       ÃÄlcd_init  0/62  Ram=6
       ³  ÃÄ@delay_ms1  0/20  Ram=1
@@ -81,6 +81,7 @@
       ÃÄ@delay_ms1  0/20  Ram=1
       ÃÄlcd_putc  0/44  Ram=1
       ³  ÀÄ*
+      ÃÄencenderMotor  0/9  Ram=0
       ÃÄlcd_gotoxy  0/18  Ram=4
       ³  ÀÄ*
       ÃÄ@PSTRINGC7_949  0/86  Ram=4
@@ -88,6 +89,7 @@
       ÃÄ@delay_ms1  0/20  Ram=1
       ÃÄlcd_putc  0/44  Ram=1
       ³  ÀÄ*
+      ÃÄapagarMotor  0/9  Ram=0
       ÃÄlcd_gotoxy  0/18  Ram=4
       ³  ÀÄ*
       ÃÄ@PSTRINGC7_949  0/86  Ram=4
@@ -95,6 +97,7 @@
       ÃÄ@delay_ms1  0/20  Ram=1
       ÃÄlcd_putc  0/44  Ram=1
       ³  ÀÄ*
+      ÃÄprenderLeds  0/8  Ram=0
       ÃÄlcd_gotoxy  0/18  Ram=4
       ³  ÀÄ*
       ÃÄ@PSTRINGC7_949  0/86  Ram=4
@@ -102,6 +105,7 @@
       ÃÄ@delay_ms1  0/20  Ram=1
       ÃÄlcd_putc  0/44  Ram=1
       ³  ÀÄ*
+      ÃÄapagarLeds  0/7  Ram=0
       ÃÄlcd_gotoxy  0/18  Ram=4
       ³  ÀÄ*
       ÃÄ@PSTRINGC7_949  0/86  Ram=4
