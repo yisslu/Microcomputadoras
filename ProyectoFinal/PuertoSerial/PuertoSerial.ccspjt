@@ -11,17 +11,17 @@ Type=4
 1=PuertoSerial.c
 
 [defines]
-buildcount=56
+buildcount=60
 
 [Opened Files]
 1=PuertoSerial.c
-t1=89
+t1=159
 Count=1
 2=i2c-lcd.c
 t2=27
 
 [ProjectLog]
-Days=5
+Days=6
 D1=16-05-2023
 D1_L=2
 D1_L1=[74403]Stopped Editing.
@@ -71,6 +71,15 @@ D5_L=3
 D5_L1=[79711]Started Editing.
 D5_L2=[80728]Project Opened.
 D5_L3=[80729]Started Editing.
+D6=11-06-2023
+D6_L=7
+D6_L1=[75101]Project Opened.
+D6_L2=[75284]Project Closed.
+D6_L3=[75295]Project Opened.
+D6_L4=[75411]Started Editing.
+D6_L5=[75769]Project Closed.
+D6_L6=[76171]Project Opened.
+D6_L7=[76395]Started Editing.
 
 [fileformats]
 forcecoff=0

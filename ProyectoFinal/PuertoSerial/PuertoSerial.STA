@@ -1,78 +1,85 @@
 
-ROM used:   1627/8192 (20%)
-            1627/8192 (20%) including unused fragments
+ROM used:   2141/8192 (26%)
+            2392/8192 (29%) including unused fragments
 
-            0.5 Average locations per line
-            3.3 Average locations per statement
+            0.6 Average locations per line
+            3.9 Average locations per statement
 
 RAM used:   41/368 (11%) at main() level
-            88/368 (24%) worst case
+            147/368 (40%) worst case
 
 Stack used: 0 worst case (0 in main + 0 for interrupts)
 Stack size: 8
 
 Lines Stmts  %   Files
 ----- ----- ---  -----
-  136    51  10  PuertoSerial.c
-  786     0   0  ..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16f887.h
- 1352   359  73  ..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\stdlib.h
-   32     0   0  ..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\stddef.h
-  435     0   0  ..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\string.h
-   28     0   0  ..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\ctype.h
-   37     0   0  ..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\stdio.h
-  456    84  17  ..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c
+  200   106  19  PuertoSerial.c
+  786     0   0  C:\Program Files (x86)\PICC\Devices\16f887.h
+   37     0   0  C:\Program Files (x86)\PICC\Drivers\stdio.h
+  435     0   0  C:\Program Files (x86)\PICC\Drivers\string.h
+   32     0   0  C:\Program Files (x86)\PICC\Drivers\stddef.h
+   28     0   0  C:\Program Files (x86)\PICC\Drivers\ctype.h
+ 1352   359  65  C:\Program Files (x86)\PICC\Drivers\stdlib.h
+  456    84  15  C:\Program Files (x86)\PICC\Drivers\lcd.c
 ----- -----
- 3262   494 Total
+ 3326   549 Total
 
 Page ROM  %  RAM    Vol Diff  Functions:
 ---- --- --- ---    --- ----  ----------
- Inline         5    140  5.0  strlen
- Inline        13    196  6.1  @MULFF
+ Inline        13             @MULFF
  Inline         2             @ITOF
-0     20   1    1     39  2.1  @delay_ms1
+0     20   1    1             @delay_ms1
  Inline         3    596  5.9  lcd_read_byte
 0      6   0    0     59  4.2  lcd_read_nibble
 0     15   1    1    179  3.3  lcd_send_nibble
-0     66   4    3    460  4.7  lcd_send_byte
-0     62   4    6    814  7.2  lcd_init
+0     66   3    3    460  4.7  lcd_send_byte
+0     62   3    6    814  7.2  lcd_init
 0     18   1    4    208  6.3  lcd_gotoxy
-0     44   3    1    354  4.7  lcd_putc
-0     64   4    6    196  5.7  comparaStrings
+0     44   2    1    354  4.7  lcd_putc
+0     68   3    6    345  6.8  compareStrings
 0     55   3    1     65  1.9  obtenerTemperatura
-0    273  17    7    308  4.5  leerEntrada
-0     10   1    0      3  0.0  @const978
- Inline         4             @PSTRINGC7_9600_62_63
-0     14   1    0    567  6.5  @const985
- Inline         5    389  4.7  @PSTRINGCN7_9600_62_63
- Inline         2    536  6.4  @PSTRINGR_9600_62_63
-0    130   8   37    389  4.7  analizaOpcion
-0    170  10   21    564  6.5  MAIN
-0    115   7    0    567  6.5  @const1002
-0     47   3    2    567  6.5  @PSTRINGC_9600_62_63
-0      7   0    0    536  6.4  @const1004
-0     87   5    5             @PSTRINGCN7_949
+0    102   5    7    308  4.5  leerEntrada
+0     10   0    0    308  4.5  @const981
+0     88   4    4             @PSTRINGC7_9600_62_63
+0     14   1    0             @const988
+0     89   4    5             @PSTRINGCN7_9600_62_63
+ Inline         2             @PSTRINGR_9600_62_63
+0    323  15  103   1418  8.1  getCommand
+1    344  16   21   1416  6.8  MAIN
+0      7   0    0   1418  8.1  @const1015
+0     21   1    3    664  6.6  @DIV88
+0     93   4    6    664  6.6  @PRINTF_D_9600_62_63
+0     11   1    0             @const1022
+0     86   4    4    664  6.6  @PSTRINGC7_949
+0      7   0    0             @const1024
+0     89   4    5             @PSTRINGCN7_949
  Inline         5             @FTOSD
-0     79   5   13             @DIV3232
-0    341  21   13             @PRINTF_L32D_949FPFPF
+0     79   4   13             @DIV3232
+0    341  16   13             @PRINTF_L32D_949FPFPF
+0      5   0    0             @const1035
+0      6   0    0             @const1036
+0      5   0    0             @const1037
+0      5   0    0             @const1038
+0     58   3    0             @const1039
  Inline         0             @cinit1
 
 Program metrics:
-    Functions               22
-    Statements              494
-    Comments                822
-    Volume (V)              13711
-    Difficulty (D)          109.5
-    Effort to implement (E) 1501801
-    Time to implement (T)   23 hours, 11 minutes
+    Functions               17
+    Statements              549
+    Comments                653
+    Volume (V)              16303
+    Difficulty (D)          93.5
+    Effort to implement (E) 1523580
+    Time to implement (T)   23 hours, 31 minutes
     Est Delivered Bugs (B)  4
-    Cyclomatic Complexity   52
-    Maintainability (MI)    84
+    Cyclomatic Complexity   48
+    Maintainability (MI)    70
 
  Segment     Used  Free
 -----------  ----  ----
 00000-00003     4  0  
-00004-007FF  1623  421  
-00800-00FFF     0  2048  
+00004-007FF  1793  251  
+00800-00FFF   344  1704  
 01000-017FF     0  2048  
 01800-01FFF     0  2048  
 
