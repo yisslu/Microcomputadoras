@@ -1,5 +1,5 @@
 ÀÄPuertoSerial
-   ÀÄMAIN  1/356  Ram=21
+   ÀÄMAIN  1/416  Ram=22
       ÃÄ@cinit1  (Inline)  Ram=0
       ÃÄlcd_init  0/62  Ram=6
       ³  ÃÄ@delay_ms1  0/20  Ram=1
@@ -17,14 +17,18 @@
       ³  ÃÄ@PSTRINGC7_9600_62_63  0/88  Ram=4
       ³  ÃÄ@PSTRINGCN7_9600_62_63  0/89  Ram=5
       ³  ÀÄ@PSTRINGR_9600_62_63  (Inline)  Ram=2
-      ÃÄgetCommand  0/323  Ram=103
+      ÃÄgetCommand  0/707  Ram=104
       ³  ÃÄcompareStrings  0/68  Ram=6
       ³  ÃÄcompareStrings  0/68  Ram=6
       ³  ÃÄcompareStrings  0/68  Ram=6
       ³  ÃÄcompareStrings  0/68  Ram=6
       ³  ÃÄcompareStrings  0/68  Ram=6
       ³  ÃÄcompareStrings  0/68  Ram=6
-      ³  ÀÄcompareStrings  0/68  Ram=6
+      ³  ÃÄcompareStrings  0/68  Ram=6
+      ³  ÃÄstrstr  (Inline)  Ram=9
+      ³  ÀÄverificaPorcentaje  (Inline)  Ram=5
+      ³     ÀÄatoi  (Inline)  Ram=9
+      ³        ÀÄ@MUL88  (Inline)  Ram=2
       ÃÄ@PSTRINGCN7_9600_62_63  0/89  Ram=5
       ÃÄ@PRINTF_D_9600_62_63  0/93  Ram=6
       ³  ÃÄ@DIV88  0/21  Ram=3
@@ -61,7 +65,7 @@
       ³  ³  ÀÄ*
       ³  ÀÄlcd_putc  0/44  Ram=1
       ³     ÀÄ*
-      ÃÄ@PRINTF_L32D_949FPFPF  0/341  Ram=13
+      ÃÄ@PRINTF_L32D_949FPFPF  1/354  Ram=13
       ³  ÃÄ@MULFF  (Inline)  Ram=13
       ³  ÃÄ@FTOSD  (Inline)  Ram=5
       ³  ÃÄ@DIV3232  0/79  Ram=13
@@ -106,6 +110,15 @@
       ÃÄlcd_putc  0/44  Ram=1
       ³  ÀÄ*
       ÃÄapagarLeds  0/7  Ram=0
+      ÃÄlcd_gotoxy  0/18  Ram=4
+      ³  ÀÄ*
+      ÃÄ@PSTRINGC7_949  0/86  Ram=4
+      ³  ÀÄ*
+      ÃÄ@delay_ms1  0/20  Ram=1
+      ÃÄpwm  0/54  Ram=4
+      ³  ÀÄ@DIV1616  (Inline)  Ram=5
+      ÃÄlcd_putc  0/44  Ram=1
+      ³  ÀÄ*
       ÃÄlcd_gotoxy  0/18  Ram=4
       ³  ÀÄ*
       ÃÄ@PSTRINGC7_949  0/86  Ram=4

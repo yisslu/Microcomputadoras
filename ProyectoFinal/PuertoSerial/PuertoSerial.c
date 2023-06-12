@@ -15,20 +15,26 @@ void leerEntrada(char* comando);
 int analizaOpcion(char* comando);
 int comparaStrings(char str1[], char str2[]);
 int compareStrings(char* str1, char* str2);
+int verificaPorcentaje(char *comando);
+int PWM(int8 pwmCiclo);
 
-int8 contador = 0; // contador principal
-int8 countAux = 0; // contador auxiliar
+int8 contador = 0;
 char getch(void);
 float valor_temperatura = 0.0;
+int pwmGlobal = 130;
 
-// int comparaStrings(char str1[], char str2[])
-// {
-//     for (int i = 0; i < strlen(str1); i++) {
-//         if (str1[i] != str2[i])
-//             return 0;
-//     }
-//     return 1;
-// }
+int verificaPorcentaje(char *comando) {
+   char *pointer;
+   pointer = comando;
+   pointer += 4;
+   int porcentaje = atoi(pointer);
+   if(porcentaje >= 0 && porcentaje <= 100) {
+      return porcentaje;      
+   }
+   
+   return -1;
+   
+}
 
 int compareStrings(char* str1, char* str2)
 {
@@ -60,6 +66,11 @@ void escribir_i2c()
     i2c_stop();
 }
 
+int PWM(int8 pwmCiclo) {
+   int ciclo = 256 * pwmCiclo / 100;
+   return ciclo;
+}
+
 void leerEntrada(char* comando)
 {
     char* ptr;
@@ -67,7 +78,6 @@ void leerEntrada(char* comando)
 
     ptr = comando;
     printf("Ingrese comando: \n\r");
-
     while ((ch = getchar()) != '\r') {
         printf("%c", ch);
         *ptr++ = (char)ch;
@@ -84,7 +94,7 @@ int getCommand(char* entry)
     char parameter[20];
     int i = 0;
     char *temperaturaString = "temperatura",
-         *pwm = "pwm",
+         *pwm = "pwm=",
          *motor = "motor",
          *leds = "leds",
          *offStr = "off",
@@ -122,6 +132,14 @@ int getCommand(char* entry)
             return 5;
         }
         return -1;
+    }else if (strstr(command, pwm)) {
+      int porcentaje = verificaPorcentaje(command);
+      if(porcentaje != -1) {
+         pwmGlobal = porcentaje;
+         return 6;
+      }
+      return -1;
+     
     }
 
     return -1;
@@ -151,11 +169,12 @@ int main()
 {
     /* Configuracion */
     lcd_init();
-    // enable_interrupts(INT_RB);
     enable_interrupts(GLOBAL);
     Setup_port_a(ALL_ANALOG);
     Setup_adc(ADC_CLOCK_INTERNAL);
-
+    setup_ccp1(CCP_PWM);
+    setup_timer_2(T2_DIV_BY_16, 64, 1);
+    set_pwm1_duty(pwmGlobal);
     while (TRUE) {
         char comando[20];
         leerEntrada(&comando);
@@ -212,7 +231,15 @@ int main()
             printf(lcd_putc, " Leds OFF");
             delay_ms(200);
             break;
-
+        // PWM
+        case 6:
+            int ciclo = PWM(pwmGlobal);
+            set_pwm1_duty(ciclo);
+            lcd_putc('\f');
+            lcd_gotoxy(0, 1);
+            printf(lcd_putc, " PWM Exitoso!");
+            delay_ms(200);
+            break;
         default:
             printf("Ups, intenta de nuevo un comando invalido\n\rAlgunos comandos validos son:\n\rmotor on, pwm=50, leds off, temperatura\n\r");
             break;

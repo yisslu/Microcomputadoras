@@ -11,21 +11,21 @@ Type=4
 1=PuertoSerial.c
 
 [defines]
-buildcount=63
+buildcount=70
 
 [Opened Files]
 1=PuertoSerial.c
-t1=1
-Count=1
-2=i2c-lcd.c
-t2=27
+t1=233
+Count=2
+2=..\..\..\..\..\..\Downloads\Proyecto Final_pwm (1)\Proyecto Final\final.c
+t2=1
 
 [ProjectLog]
-Days=6
+Days=7
 D1=16-05-2023
 D1_L=2
 D1_L1=[74403]Stopped Editing.
-TotalEdit=208
+TotalEdit=2436
 TotalDebug=0
 D1_E=198
 D1_D=0
@@ -84,6 +84,21 @@ D6_L8=[76698]Stopped Editing.
 D6_E=1
 D6_D=0
 D6_L9=[77859]Project Closed.
+D7=12-06-2023
+D7_E=2228
+D7_D=0
+D7_L=11
+D7_L1=[35803]Project Closed.
+D7_L2=[35814]Project Opened.
+D7_L3=[36607]Started Editing.
+D7_L4=[41159]Stopped Editing.
+D7_L5=[42665]Started Editing.
+D7_L6=[44247]Stopped Editing.
+D7_L7=[44267]Started Editing.
+D7_L8=[44582]Stopped Editing.
+D7_L9=[47473]Started Editing.
+D7_L10=[48162]Stopped Editing.
+D7_L11=[48400]Project Closed.
 
 [fileformats]
 forcecoff=0

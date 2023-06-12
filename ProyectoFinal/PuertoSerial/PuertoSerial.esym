@@ -1,9 +1,10 @@
-D G "__PCM__" 0 225 ""5.076""
-D G "__DEVICE__" 0 225 "887"
-D G "__DATE__" 0 225 ""11-jun.-23""
-D G "__TIME__" 0 225 ""21:35:44""
-D G "_UNICODE" 0 225 ""?""
-D G "__EVAL" 0 225 ""?"" "Standard Header file for the PIC16F887 device ////////////////"
+F N "MAIN" 0 168 ""
+D G "__PCM__" 0 245 ""5.076""
+D G "__DEVICE__" 0 245 "887"
+D G "__DATE__" 0 245 ""12-Jun-23""
+D G "__TIME__" 0 245 ""13:17:44""
+D G "_UNICODE" 0 245 ""?""
+D G "__EVAL" 0 245 ""?"" "Standard Header file for the PIC16F887 device ////////////////"
 c L "set_tris_a" 1 3 6 "FUNCTION"
 f N "set_tris_a" 1 39 ""
 v L "value" 1 39 "int8" `55 
@@ -1695,66 +1696,80 @@ F N "compareStrings" 0 17 ""
 V L "str1" 0 17 "*int8" `973 
 V L "str2" 0 17 "*int8" `974 
 f G "compareStrings" 0 17 "int8(*int8 str1,*int8 str2)" `972 
-V G "contador" 0 19 "int8" `975 
-C L "compareStrings" 0 11 1 "FUNCTION"
-V G "countAux" 0 20 "int8" `976 
-C L "compareStrings" 0 11 1 "FUNCTION"
-F N "getch" 0 21 ""
-F B "getch" 0 21 "int8()" `363 
-V G "valor_temperatura" 0 22 "float" `977 
-C L "getch" 0 11 5 "FUNCTION"
-F N "compareStrings" 0 33 ""
-V L "str1" 0 33 "*int8" `973 
-V L "str2" 0 33 "*int8" `980 
-F G "compareStrings" 0 34 "int8(*int8 str1,*int8 str2)" `972 
-V L "i" 0 35 "int8" `978 
-F N "obtenerTemperatura" 0 48 ""
-F G "obtenerTemperatura" 0 49 "void()" `962 
-F N "escribir_i2c" 0 55 ""
-F G "escribir_i2c" 0 56 "void()" `961 
+F N "verificaPorcentaje" 0 18 ""
+V L "comando" 0 18 "*int8" `976 
+f G "verificaPorcentaje" 0 18 "int8(*int8 comando)" `975 
+F N "pwm" 0 19 ""
+V L "pwmCiclo" 0 19 "int8" `978 
+f G "pwm" 0 19 "int8(int8 pwmCiclo)" `977 
+V G "contador" 0 21 "int8" `979 
+F N "getch" 0 22 ""
+F B "getch" 0 22 "int8()" `363 
+V G "valor_temperatura" 0 23 "float" `980 
+V G "pwmGlobal" 0 24 "int8" `981 
+F N "verificaPorcentaje" 0 26 ""
+V L "comando" 0 26 "*int8" `983 
+F G "verificaPorcentaje" 0 26 "int8(*int8 comando)" `975 
+V L "pointer" 0 27 "*int8" `982 
+V L "porcentaje" 0 30 "int8" `983 
+F N "compareStrings" 0 39 ""
+V L "str1" 0 39 "*int8" `973 
+V L "str2" 0 39 "*int8" `986 
+F G "compareStrings" 0 40 "int8(*int8 str1,*int8 str2)" `972 
+V L "i" 0 41 "int8" `984 
+F N "obtenerTemperatura" 0 54 ""
+F G "obtenerTemperatura" 0 55 "void()" `962 
+F N "escribir_i2c" 0 61 ""
+F G "escribir_i2c" 0 62 "void()" `961 
 C L "escribir_i2c" 0 11 1 "FUNCTION"
 C L "escribir_i2c" 0 11 1 "FUNCTION"
-F N "leerEntrada" 0 63 ""
-V L "comando" 0 63 "*int8" `980 
-F G "leerEntrada" 0 64 "void(*int8 comando)" `963 
-V L "ptr" 0 65 "*int8" `979 
-V L "ch" 0 66 "int8" `980 
-F N "getCommand" 0 81 ""
-V L "entry" 0 81 "*int8" `993 
-F G "getCommand" 0 82 "int8(*int8 entry)" `992 
-V L "command" 0 83 "int8[20]" `994 
-V L "parameter" 0 84 "int8[20]" `995 
-V L "i" 0 85 "int8" `996 
-V L "temperaturaString" 0 86 "*int8" `997 
-V L "pwm" 0 87 "*int8" `999 
-V L "motor" 0 88 "*int8" `1001 
-V L "leds" 0 89 "*int8" `1003 
-V L "offStr" 0 90 "*int8" `1005 
-V L "onStr" 0 91 "*int8" `1007 
-V L "j" 0 101 "int8" `1009 
-F N "encenderMotor" 0 130 ""
-F G "encenderMotor" 0 131 "void()" `1010 
+F N "pwm" 0 69 ""
+V L "pwmCiclo" 0 69 "int8" `986 
+F G "pwm" 0 69 "int8(int8 pwmCiclo)" `977 
+V L "ciclo" 0 70 "int8" `985 
+F N "leerEntrada" 0 74 ""
+V L "comando" 0 74 "*int8" `987 
+F G "leerEntrada" 0 75 "void(*int8 comando)" `963 
+V L "ptr" 0 76 "*int8" `986 
+V L "ch" 0 77 "int8" `987 
+F N "getCommand" 0 91 ""
+V L "entry" 0 91 "*int8" `1000 
+F G "getCommand" 0 92 "int8(*int8 entry)" `999 
+V L "command" 0 93 "int8[20]" `1001 
+V L "parameter" 0 94 "int8[20]" `1002 
+V L "i" 0 95 "int8" `1003 
+V L "temperaturaString" 0 96 "*int8" `1004 
+V L "pwm" 0 97 "*int8" `1006 
+V L "motor" 0 98 "*int8" `1008 
+V L "leds" 0 99 "*int8" `1010 
+V L "offStr" 0 100 "*int8" `1012 
+V L "onStr" 0 101 "*int8" `1014 
+V L "j" 0 111 "int8" `1016 
+V L "porcentaje" 0 136 "int8" `1017 
+F N "encenderMotor" 0 148 ""
+F G "encenderMotor" 0 149 "void()" `1018 
 C L "encenderMotor" 0 11 1 "FUNCTION"
-F N "apagarMotor" 0 135 ""
-F G "apagarMotor" 0 136 "void()" `1011 
+F N "apagarMotor" 0 153 ""
+F G "apagarMotor" 0 154 "void()" `1019 
 C L "apagarMotor" 0 11 1 "FUNCTION"
-F N "prenderLeds" 0 140 ""
-F G "prenderLeds" 0 141 "void()" `1012 
+F N "prenderLeds" 0 158 ""
+F G "prenderLeds" 0 159 "void()" `1020 
 C L "prenderLeds" 0 11 1 "FUNCTION"
-F N "apagarLeds" 0 145 ""
-F G "apagarLeds" 0 146 "void()" `1013 
+F N "apagarLeds" 0 163 ""
+F G "apagarLeds" 0 164 "void()" `1021 
 C L "apagarLeds" 0 11 1 "FUNCTION"
-F N "MAIN" 0 150 ""
-F G "MAIN" 0 151 "int8()" `1014  "Configuracion *"
+F N "MAIN" 0 168 ""
+F G "MAIN" 0 169 "int8()" `1022  "Configuracion *"
+V L "comando" 0 179 "int8[20]" `1025 
 C L "MAIN" 0 11 1 "FUNCTION"
-V L "comando" 0 160 "int8[20]" `1017 
-C L "MAIN" 0 11 1 "FUNCTION"
-V L "opcion" 0 163 "int8" `1018 
-C L "MAIN" 0 11 1 "FUNCTION"
+V L "opcion" 0 182 "int8" `1026 
 C L "MAIN" 0 11 1 "FUNCTION"
 C L "MAIN" 0 11 1 "FUNCTION"
 C L "MAIN" 0 11 1 "FUNCTION"
 C L "MAIN" 0 11 1 "FUNCTION"
+C L "MAIN" 0 11 1 "FUNCTION"
+C L "MAIN" 0 11 1 "FUNCTION"
+V L "ciclo" 0 236 "int8" `1051 
 F B "reset_cpu" 0 0
 F B "abs" 1 0
 F B "sleep_ulpwu" 1 0
